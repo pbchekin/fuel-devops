@@ -157,7 +157,7 @@ class LibvirtXMLBuilder(object):
 
         with device_xml.disk(type=disk_type, device=disk_device):
             # https://bugs.launchpad.net/ubuntu/+source/qemu-kvm/+bug/741887
-            device_xml.driver(type=disk_volume_format, cache="unsafe")
+            device_xml.driver(type=disk_volume_format, cache="none")
             device_xml.source(file=disk_volume_path)
             if disk_bus == 'usb':
                 device_xml.target(
