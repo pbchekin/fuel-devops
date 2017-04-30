@@ -102,6 +102,8 @@ class LibvirtXMLBuilder(object):
         volume_xml = xmlgenerator.XMLGenerator('volume')
         volume_xml.name(cls._crop_name(name))
         volume_xml.capacity(str(capacity))
+        if vol_format == 'raw':
+            volume_xml.allocation(str(0))
         with volume_xml.target:
             volume_xml.format(type=vol_format)
             volume_xml.permissions.mode("0644")
